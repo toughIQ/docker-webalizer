@@ -8,6 +8,7 @@ services:
     ports:
       - 8080:80
     volumes:
+# path to webalizer results, which should get displayed by nginx
       - ${PWD}/webalizer:/usr/share/nginx/html
 
 # WEBALIZER Service
