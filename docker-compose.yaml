@@ -16,8 +16,12 @@ services:
     restart: unless-stopped
     build: .
     volumes:
+# we read logfiles from here: 
       - ${PWD}/logs:/logs
+# we put results there:
       - ${PWD}/webalizer:/webalizer
+# to pass custom webalizer.conf at runtime, add next line to "volumes" section:
+#     - ${PWD}/webalizer.conf:/etc/webalizer.conf
     environment:
       - DOMAIN=mydomain.com
       - INTERVAL=3600
