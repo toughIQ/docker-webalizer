@@ -3,6 +3,7 @@ A dockerized version of Webalizer http://www.webalizer.org/
 
 ## Run
 Edit __docker-compose.yaml__ to set your paths for _/logs_ and _/webalizer_
+
 Set __ENV__ variables to match your needs:
 
 DOMAIN: the domain of your site
