@@ -15,7 +15,6 @@ services:
   webalizer:
     image: toughiq/webalizer:latest
     restart: unless-stopped
-    build: .
     volumes:
 # we read logfiles from here: 
       - ${PWD}/logs:/logs
