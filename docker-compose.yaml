@@ -1,0 +1,25 @@
+version: "2.0"
+
+services:
+# NGINX to view results
+  nginx:
+    image: nginx:stable
+    restart: unless-stopped
+    ports:
+      - 8080:80
+    volumes:
+      - ${PWD}/webalizer:/usr/share/nginx/html
+
+# WEBALIZER Service
+  webalizer:
+    image: toughiq/webalizer:latest
+    restart: unless-stopped
+    build: .
+    volumes:
+      - ${PWD}/logs:/logs
+      - ${PWD}/webalizer:/webalizer
+    environment:
+      - DOMAIN=mydomain.com
+      - INTERVAL=3600
+      - VERBOSE=0
+

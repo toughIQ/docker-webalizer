@@ -1,0 +1,3 @@
+logs/
+webalizer/
+docker-compose.*.yml
