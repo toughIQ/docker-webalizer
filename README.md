@@ -13,7 +13,7 @@ Set __ENV__ variables to match your needs:
 Webalizer by default only parses the __latest__ logfile. 
 This image is built in such a way, that if there is no Webalizer data present in _/webalizer_ it will assume an initial run and parse __all__ availabe logfiles (old to new) provided in _/logs_.
 
-There is also a NginX container to display the results.
+There is also a NginX container to display the results listening on port 8080.
 
 ## Run
 `docker-compose up -d`
