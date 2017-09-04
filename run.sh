@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 
+# we check, if VERBOSE is set to 1. If yes, we define a parameter to use at runtime.
 if [ "$VERBOSE" -eq 1 ]; then
   VERBOSEFLAG='-v'
 fi
@@ -13,7 +14,7 @@ if [ ! -f /webalizer/webalizer.current ]; then
   done
 fi
 
-
+# we run webalizer in an endless loop, waiting for INTERVAL seconds between runs.
 while true
 do
   /usr/bin/webalizer ${VERBOSEFLAG} -n ${DOMAIN} -r ${DOMAIN} -c /etc/webalizer.conf -o /webalizer /logs/*
