@@ -16,6 +16,18 @@ This image is built in such a way, that if there is no Webalizer data present in
 There is also a NginX container to display the results listening on port 8080.
 
 ## Run
+via Docker CLI:
+```
+docker run -d \
+-v ${PWD}/logs:/logs \
+-v ${PWD}/webalizer:/webalizer \
+-e DOMAIN=mydomain.com \
+-e INTERVAL=3600 \
+-e VERBOSE=0 \
+toughiq/webalizer:latest
+```
+or docker-compose:
+
 `docker-compose up -d`
 
 ## Logs
