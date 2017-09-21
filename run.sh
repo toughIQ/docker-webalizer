@@ -8,7 +8,7 @@ fi
 
 # if webalizer.current does not exist, we assume an initial run and process all found logs
 if [ ! -f /webalizer/webalizer.current ]; then
-  for i in `ls -tr /logs/${LOGPREFIX}`
+  for i in `ls -tr /logs/${LOGPREFIX}*`
   do 
     /usr/bin/webalizer ${VERBOSEFLAG} -n ${DOMAIN} -r ${DOMAIN} -c /etc/webalizer.conf -o /webalizer $i
   done
