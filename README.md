@@ -7,6 +7,7 @@ Edit __docker-compose.yaml__ to set your paths for _/logs_ and _/webalizer_
 Set __ENV__ variables to match your needs:
 
 * DOMAIN: the domain of your site
+* LOGPREFIX: Name of access logfiles. will get an asterix appended
 * INTERVAL: time in seconds between runs. Defaults to __3600__ seconds = 1 hour
 * VERBOSE: set to __1__ for detailed output
 
@@ -22,6 +23,7 @@ docker run -d \
 -v ${PWD}/logs:/logs \
 -v ${PWD}/webalizer:/webalizer \
 -e DOMAIN=mydomain.com \
+-e LOGPREFIX=access \
 -e INTERVAL=3600 \
 -e VERBOSE=0 \
 toughiq/webalizer:latest

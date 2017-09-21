@@ -8,7 +8,7 @@ fi
 
 # if webalizer.current does not exist, we assume an initial run and process all found logs
 if [ ! -f /webalizer/webalizer.current ]; then
-  for i in `ls -tr /logs/*`
+  for i in `ls -tr /logs/${LOGPREFIX}`
   do 
     /usr/bin/webalizer ${VERBOSEFLAG} -n ${DOMAIN} -r ${DOMAIN} -c /etc/webalizer.conf -o /webalizer $i
   done
@@ -17,7 +17,7 @@ fi
 # we run webalizer in an endless loop, waiting for INTERVAL seconds between runs.
 while true
 do
-  /usr/bin/webalizer ${VERBOSEFLAG} -n ${DOMAIN} -r ${DOMAIN} -c /etc/webalizer.conf -o /webalizer /logs/*
+  /usr/bin/webalizer ${VERBOSEFLAG} -n ${DOMAIN} -r ${DOMAIN} -c /etc/webalizer.conf -o /webalizer /logs/${LOGPREFIX}*
   DATE=`date '+%Y-%m-%d %H:%M:%S'`
   echo "${DATE}: ALIVE! Sleeping for ${INTERVAL} seconds now"
   sleep ${INTERVAL}

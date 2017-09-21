@@ -22,5 +22,6 @@ COPY run.sh /run.sh
 CMD ["/run.sh"]
 
 ENV DOMAIN=mydomain.com \
+    LOGPREFIX=access \
     INTERVAL=3600 \
     VERBOSE=0
