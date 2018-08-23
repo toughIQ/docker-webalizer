@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM debian:stretch-slim
 MAINTAINER toughiq <toughIQ@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
